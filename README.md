@@ -16,6 +16,10 @@ Algorithm uniformity tested for nextInt() and nextLong() methods by:
  * NIST STS
  * GJrand STS
  * PractRand STS on 16 TB (2^44 bytes) data with no fails;
+ 
+### What for?
+
+I want to make fast and statistical correct algorithm with counter that will allow me to quickly get a pseudo-random value at any given time without overwriting the generator seed. It's all.
 
 ### Tests
 
