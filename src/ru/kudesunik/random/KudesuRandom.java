@@ -118,13 +118,7 @@ public class KudesuRandom implements Cloneable {
 	}
 	
 	public double nextDouble() {
-		double result = (nextLong() >>> 12) * 0x1.0P-52d;
-		result -= (nextLong() >>> 12) * 0x1.0P-52d;
-		result += (nextLong() >>> 12) * 0x1.0P-52d;
-		result -= (nextLong() >>> 12) * 0x1.0P-52d;
-		result += (nextLong() >>> 12) * 0x1.0P-52d;
-		result -= (nextLong() >>> 12) * 0x1.0P-52d;
-		return result;
+		return (nextLong() >>> 12) * 0x1.0P-52d;
 	}
 	
 	public void nextBytes(byte[] bytes) {
@@ -140,7 +134,7 @@ public class KudesuRandom implements Cloneable {
 	
 	@Override
 	public KudesuRandom clone() {
-		KudesuRandom random = new KudesuRandom();
+		KudesuRandom random = new KudesuRandom(seed);
 		random.count = this.count;
 		return random;
 	}
