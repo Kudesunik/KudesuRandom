@@ -21,6 +21,63 @@ Algorithm uniformity tested for nextInt() and nextLong() methods by:
 
 I want to make fast and statistical correct algorithm with counter that will allow me to quickly get a pseudo-random value at any given time without overwriting the generator seed. It's all.
 
+### Usage
+
+<details><summary>Default</summary>
+ 
+```
+KudesuRandom random = new KudesuRandom();
+
+random.nextInt(); //-1468804468
+random.nextLong(); //5938348328185169865
+random.nextFloat(); //0.92516685
+random.nextDouble(); //0.29415755092917695
+random.nextBoolean(); //true
+```
+
+</details>
+
+<details><summary>Utility</summary>
+
+```
+KudesuRandom random = new KudesuRandom();
+		
+random.nextIntRange(5); //4
+random.nextIntRange(5, 10); //8
+random.nextLongRange(5); //2
+random.nextLongRange(5000000000000L, 5000000000010L); //5000000000007
+```
+
+</details>
+
+<details><summary>Counter</summary>
+
+```
+KudesuRandom random = new KudesuRandom();
+		
+random.getInt(462); //228517850
+random.getInt(875); //-250807096
+		
+random.getInt(462); //228517850
+random.getInt(875); //-250807096
+		
+random.getDouble(7852); //0.5717218313913663
+random.getDouble(7853); //0.7288801393591917
+		
+random.setCounter(7852);
+		
+random.nextDouble(); //0.5717218313913663
+random.nextDouble(); //0.7288801393591917
+```
+
+</details>
+
+<details><summary>Multithread</summary>
+
+Make your own threads with ```random.setCounter()``` and set same ```seed``` value :)
+ 
+</details>
+
 ### Tests
 
 PractRand Statistical Test Suite and performance tests results:
