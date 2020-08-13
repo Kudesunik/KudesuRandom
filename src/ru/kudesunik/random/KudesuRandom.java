@@ -331,7 +331,7 @@ public class KudesuRandom implements Cloneable {
 	 * Resets internal pseudorandom generator state
 	 */
 	public void reset() {
-		this.count = Long.MIN_VALUE;
+		this.count = Long.MIN_VALUE + 1;
 		this.nextGaussian = Double.NaN;
 	}
 }
